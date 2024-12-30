@@ -1,445 +1,555 @@
 {  
     "questions": [  
-        {
-            "id": 1,
-            "question": "Bagian dari suatu sistem yang merupakan komponen dari sistem itu disebut dengan ....",
-            "options": [
-              "proses",
-              "struktur",
-              "prosedur",
-              "bagian/komponen"
-            ],
-            "correct": "struktur"
-          },
-          {
-            "id": 2,
-            "question": "Sistem abstrak merupakan sistem yang berupa pemikiran-pemikiran atau ide-ide yang tidak tampak secara fisik, Contoh dari sistem tersebut adalah….",
-            "options": [
-              "sistem teologia",
-              "man-machine system",
-              "pemrograman",
-              "relatively closed system"
-            ],
-            "correct": "sistem teologia"
-          },
-          {
-            "id": 3,
-            "question": "Sistem transaksi bisnis yang mencatat di dokumen-dokumen dasar kemudian diproses menjadi sistem informasi, tujuannya untuk level manajemen",
-            "options": [
-              "atas",
-              "bawah",
-              "tengah",
-              "lini dan puncak"
-            ],
-            "correct": "bawah"
-          },
-          {
-            "id": 4,
-            "question": "Jaringan antar komputer yang menghubungkan komputer pada jangkauan tertentu disebut….",
-            "options": [
-              "wireless",
-              "wi-max",
-              "wi-fi",
-              "LAN"
-            ],
-            "correct": "LAN"
-          },
-          {
-            "id": 5,
-            "question": "Sebelum menghasilkan sebuah informasi data harus diolah kemudian data ini disimpan (storage) dalam bentuk basis data (database). Proses akhir ini disebut",
-            "options": [
-              "processing life cycle",
-              "extended data processing life cycle",
-              "data processing life cycle",
-              "information life cycle"
-            ],
-            "correct": "extended data processing life cycle"
-          },
-          {
-            "id": 6,
-            "question": "Komponen sistem informasi berupa data yang masuk kedalam sistem informasi disebut dengan…",
-            "options": [
-              "input",
-              "model",
-              "output",
-              "basis data"
-            ],
-            "correct": "input"
-          },
-          {
-            "id": 7,
-            "question": "Sistem informasi yang mencatat transaksi ke dokumen-dokumen dasar kemudian mengolahnya ke dalam sistem informasi yang diolah untuk dijadikan informasi-informasi pencatatan nilai disebut.",
-            "options": [
-              "transaction processing systems",
-              "spreadsheet",
-              "buku besar",
-              "neraca"
-            ],
-            "correct": "transaction processing systems"
-          },
-          {
-            "id": 8,
-            "question": "Sistem yang dapat menunjukkan pergeseran selera konsumen dari satu tempat ke tempat yang lain dengan menggunakan tampilan geografis disebut…",
-            "options": [
-              "ANN",
-              "GIS",
-              "DSS",
-              "SIS"
-            ],
-            "correct": "GIS"
-          },
-          {
-            "id": 9,
-            "question": "Era dimana perusahaan-perusahaan sudah dihubungkan dengan jaringan sistem teknologi informasi secara global dengan teknologi telekomunikasi melalui internet merupakan ciri dari...",
-            "options": [
-              "operasi",
-              "informasi",
-              "era jejaring global",
-              "akuntansi"
-            ],
-            "correct": "era jejaring global"
-          },
-          {
-            "id": 10,
-            "question": "Sistem untuk meyakinkan bahwa tiap-tiap tugas tertentu telah dilaksanakan secara efektif dan efisien merupakan pengertian dari pengendalian...",
-            "options": [
-              "operasi",
-              "manajemen",
-              "strategik",
-              "standar"
-            ],
-            "correct": "operasi"
-          },
-          {
-            "id": 11,
-            "question": "Tingkatan manajer yang melakukan keputusan yang sifatnya terstruktur adalah manajemen tingkat…",
-            "options": [
-              "atas",
-              "menengah",
-              "bawah",
-              "atas dan bawah"
-            ],
-            "correct": "bawah"
-          },
-          {
-            "id": 12,
-            "question": "Urutan yang benar siklus pengolahan data dari sistem informasi adalah",
-            "options": [
-              "Input ? model ? output",
-              "Input ? output ? model",
-              "model ? Input ? output ? informasi",
-              "Input ? model ? output ? informasi"
-            ],
-            "correct": "Input ? model ? output"
-          },
-            {
-            "id": 13,
-            "question": "Penerapan sistem-sistem informasi di dalam fungsi-fungsi organisasi atau di tingkatan-tingkatan organisasi merupakan penerapan sistem informasi secara….",
-            "options": [
-              "eksternal",
-              "internal",
-              "perencanaan stratejik",
-              "pengendalian"
-            ],
-            "correct": "internal"
-          },
-            {
-            "id": 14,
-            "question": "Sistem informasi fungsional yang terintegrasi meliputi beberapa fungsi dalam organisasi adalah",
-            "options": [
-              "CRM",
-              "PCS",
-              "AIS",
-              "ERP"
-            ],
-            "correct": "ERP"
-          },
-          {
-            "id": 15,
-            "question": "Karakteristik yang digunakan oleh manajer tingkat atas untuk membantu pemecahan masalah tidak terstruktur pada Sistem informasi eksekutif adalah...",
-            "options": [
-              "mendukung manajer operasi untuk melakukan kegiatannya",
-              "dirancang untuk pengendalian dan pengambilan keputusan manajemen",
-              "tidak menggunakan data internal dan eksternal",
-              "menggunakan teks, grafik dan tabel yang mudah dicerna"
-            ],
-            "correct": "menggunakan teks, grafik dan tabel yang mudah dicerna"
-          },
-          {
-            "id": 16,
-            "question": "Strategi menurunkan secara drastis biaya proses bisnis dengan melakukan rekayasa proses bisnis disebut…",
-            "options": [
-              "Cost leadership",
-              "Differentiation",
-              "Focus",
-              "Innovation"
-            ],
-            "correct": "Cost leadership"
-          },
-          {
-            "id": 17,
-            "question": "Alasan untuk mengembangkan sistem secara professional menggunakan analis sistem di metode siklus hidup pengembangan sistem karena",
-            "options": [
-              "digunakan untuk mengembangkan sistem teknologi informasi yang kompleks",
-              "analisis sistem komunikasi pada pengembangan sistem informasi",
-              "menyediakan tahapan yang dapat digunakan sebagai pedoman mengembangkan sistem",
-              "metodologi pengembangan sistem terstruktur"
-            ],
-            "correct": "digunakan untuk mengembangkan sistem teknologi informasi yang kompleks"
-          },
-          {
-            "id": 18,
-            "question": "Berikut ini kelebihan dari metode siklus hidup pengembangan sistem adalah….",
-            "options": [
-              "hasil akhir pada tahap analisis",
-              "menyediakan tahapan yang dapat digunakan sebagai pedoman mengembangkan sistem",
-              "biaya relatif mahal",
-              "afiliasi metodologi pengembangan sistem terstruktur."
-            ],
-            "correct": "menyediakan tahapan yang dapat digunakan sebagai pedoman mengembangkan sistem"
-          },
-          {
-            "id": 19,
-            "question": "Alat masukan yang bekerja dengan cara meraba secara elektronik input yang akan dibaca adalah….",
-            "options": [
-              "censor",
-              "pointing device",
-              "keyboard",
-              "scanner"
-            ],
-            "correct": "scanner"
-          },
-          {
-            "id": 20,
-            "question": "Bagian utama dari tempat pemrosesan instruksi-instruksi program (CPU) adalah….",
-            "options": [
-              "unit kendali (control unit)",
-              "prosesor",
-              "memori",
-              "hardisk"
-            ],
-            "correct": "unit kendali (control unit)"
-          },
-          {
-            "id": 21,
-            "question": "Program yang ditulis dan diterjemahkan oleh language software untuk menyelesaikan suatu aplikasi tertentu adalah perangkat lunak….",
-            "options": [
-              "sistem",
-              "aplikasi",
-              "sistem operasi",
-              "bahasa"
-            ],
-            "correct": "aplikasi"
-          },
-          {
-            "id": 22,
-            "question": "Perangkat lunak bahasa yang digunakan untuk memudahkan kesulitan penulisan program dengan bahasa mesin adalah….",
-            "options": [
-              "assembler",
-              "transtool",
-              "fortran",
-              "pascal"
-            ],
-            "correct": "assembler"
-          },
-          {
-            "id": 23,
-            "question": "Organisasi file tradisional dengan organisasi urut (sequential organization) dan dengan pengaksesan secara langsung (direct access) disebut dengan file….",
-            "options": [
-              "urut",
-              "akses langsung",
-              "urut berindeks",
-              "akses tidak langsung"
-            ],
-            "correct": "urut berindeks"
-          },
-          {
-            "id": 24,
-            "question": "Struktur data yang menyusun data sehingga tiap-tiap kode dapat mempunyai lebih dari satu orang tua disebut struktur data",
-            "options": [
-              "paralel",
-              "berjenjang",
-              "hubungan",
-              "jaringan"
-            ],
-            "correct": "jaringan"
-          },
-          {
-            "id": 25,
-            "question": "Untuk meyakinkan bahwa alat-alat input/output seperti misalnya printer, tape drive, disk drive dan lain sebagainya masih tetap berfungsi dengan memuaskan bila akan dipergunakan adalah….",
-            "options": [
-              "Echo Check",
-              "Read After Write Check",
-              "Parity Check",
-              "Validity Check"
-            ],
-            "correct": "Echo Check"
-          },
-          {
-            "id": 26,
-            "question": "Tujuan dari pengendalian kerusakan perangkat keras adalah….",
-            "options": [
-              "pengontrol data",
-              "data processing feedback",
-              "mendeteksi kesalahan",
-              "analisa sistem"
-            ],
-            "correct": "mendeteksi kesalahan"
-          },
-          {
-            "id": 27,
-            "question": "Sistem komputer yang dihubungkan dengan internet juga dapat diberi protokol jasa nama domain, Contoh dari domain pendidikan adalah….",
-            "options": [
-              "Com",
-              "Edu",
-              "Net",
-              "Gov"
-            ],
-            "correct": "Edu"
-          },
-          {
-            "id": 28,
-            "question": "World Wide Web merupakan suatu sistem informasi multimedia yang memanfaatkan internet untuk mempublikasikan informasi yang dibuat dengan menggunakan...",
-            "options": [
-              "e-mail",
-              "browser",
-              "URL",
-              "hypertext"
-            ],
-            "correct": "hypertext"
-          },
-          {
-            "id": 29,
-            "question": "Melakukan kerjasama-kerjasama dengan partner-partner bisnis dan melakukan transaksi elektronik di dalam suatu organisasi adalah indikator dari….",
-            "options": [
-              "E-Commerce",
-              "E-business",
-              "AOL",
-              "E-bay online : akses kemudahan pembayaran dari lembaga keuangan."
-            ],
-            "correct": "E-business"
-          },
-          {
-            "id": 30,
-            "question": "Sistem informasi multimedia yang menggunakan internet untuk publikasi suatu informasi adalah….",
-            "options": [
-              "www",
-              "XML",
-              "IP ADDRESS",
-              "data processing feedback"
-            ],
-            "correct": "www"
-          },
-          {
-            "id": 31,
-            "question": "Sebuah tempat di Internet dimana Anda bisa menempatkan Informasi, sehingga siapa saja di dunia ini dapat mengunjunginya, masukan atau bahkan mengetahui dan membeli produk disebut….",
-            "options": [
-              "online store",
-              "XML",
-              "HTML",
-              "website"
-            ],
-            "correct": "website"
-          },
-          {
-            "id": 32,
-            "question": "Penggunaan internet untuk melakukan bisnis disebut….",
-            "options": [
-              "e-learning",
-              "e-mail",
-              "e-commerce",
-              "e-bay"
-            ],
-            "correct": "e-commerce"
-          },
-          {
-            "id": 33,
-            "question": "Suatu sistem informasi dikatakan mendukung strategi jika dapat menyediakan produk atau jasa yang berbeda atau unik dengan nilai yang lebih besar kepada pelanggan dibandingkan pesaing-pesaingnya, yaitu dengan cara…",
-            "options": [
-              "menggunakan sistem informasi antar organisasi untuk menghubungkan sistem-sistem informasi perusahaan lain",
-              "membantu perusahaan memfokuskan pada produk atau jasa khusus di suatu niche khusus di dalam organisasi",
-              "menurunkan secara drastis biaya proses bisnis dengan melakukan rekayasa proses bisnis",
-              "menggunakan teknologi informasi untuk membuat produk atau jasa yang berbeda"
-            ],
-            "correct": "menggunakan teknologi informasi untuk membuat produk atau jasa yang berbeda"
-          },
-          {
-            "id": 34,
-            "question": "Yang menjadi fokus utama perbedaan E-business dengan E-Commerce terletak pada….",
-            "options": [
-              "melakukan order pembelian",
-              "mendapatkan keuntungan",
-              "memberikan informasi dan mendapatkan feedback",
-              "strategi dalam merubah bisnis"
-            ],
-            "correct": "strategi dalam merubah bisnis"
-          },
-          {
-            "id": 35,
-            "question": "Sistem operasi yang dikembangkan dengan bahasa C adalah ....",
-            "options": [
-              "VM",
-              "MD-DOS",
-              "CP/M",
-              "UNIX"
-            ],
-            "correct": "UNIX"
-          },
-          {
-            "id": 36,
-            "question": "Dalam komunikasi data, media transmisi (transmission media) atau jalur atau kanal komunikasi (communication channel) digunakan untuk ....",
-            "options": [
-              "Mengirim data atau informasinya",
-              "Membawa data yang dikirimkan dari sumber data ke penerima",
-              "Mendukung transmisi data",
-              "Mengendalikan proses komunikasi data"
-            ],
-            "correct": "Membawa data yang dikirimkan dari sumber data ke penerima"
-          },
-          {
-            "id": 37,
-            "question": "Pemroses komunikasi (communication processor) digunakan untuk ....",
-            "options": [
-              "Mengirim data atau informasinya",
-              "Membawa data yang dikirimkan dari sumber data ke penerima",
-              "Mendukung transmisi data",
-              "Mengendalikan proses komunikasi data"
-            ],
-            "correct": "Mengendalikan proses komunikasi data"
-          },
-          {
-            "id": 38,
-            "question": "Perangkat lunak komunikasi (communication software) digunakan untuk ....",
-            "options": [
-              "Mengirim data atau informasinya",
-              "Membawa data yang dikirimkan dari sumber data ke penerima",
-              "Mendukung transmisi data",
-              "Mengendalikan proses komunikasi data"
-            ],
-            "correct": "Mengendalikan proses komunikasi data"
-          },
-          {
-            "id": 39,
-            "question": "Aplikasi e-commerce antara organisasi-organisasi bisnis disebut ....",
-            "options": [
-              "B2B",
-              "B2C",
-              "B2D",
-              "B2G"
-            ],
-            "correct": "B2B"
-          },
-          {
-            "id": 40,
-            "question": "Electronic data interchange (EDI) merupakan aplikasi dari",
-            "options": [
-              "B2B",
-              "B2C",
-              "B2D",
-              "B2G"
-            ],
-            "correct": "B2B"
-          }
+      {
+        "id": 1,
+        "question": "Usaha sadar dan terencana untuk membekali peserta didik dengan pengetahuan dan kemampuan dasar berkenaan dengan hubungan timbal balik antara warga negara dengan negara, merupakan pengertian dari…",
+        "options": [
+            "Patriotisme 17 Agustus 1945",
+            "Pendidikan Kewarganegaraan",
+            "Kewarganegaraan",
+            "Pendidikan"
+        ],
+        "correct": "Pendidikan Kewarganegaraan"
+    },
+    {
+        "id": 2,
+        "question": "Pendidikan Kewarganegaraan dikaji dan dibahas melalui pendekatan akademik dan ilmiah dengan menekankan pada olah kalbu, olah karsa, olah rasa, serta olah pikir yang bersifat komprehensif, integratif, dan holistik. Hal ini merupakan pengertian Pendidikan Kewarganegaraan secara filsafat dilihat dari perspektif….",
+        "options": [
+            "Metodologi",
+            "Epistemologi",
+            "Ontologi",
+            "Aksiologi"
+        ],
+        "correct": "Epistemologi"
+    },
+    {
+        "id": 3,
+        "question": "Kompetensi Mahasiswa yang diharapkan menjadi ilmuwan yang memiliki rasa kebangsaan dan cinta tanah air, demokratis yang berkeadaban, menjadi warga negara yang memiliki daya saing, berdisiplin, dan berpartisipasi aktif, dalam membangun kehidupan yang damai berdasarkan nilai-nilai Pancasila merupakan kompetensi dalam mempelajari Pendidikan Kewarganegaraan yang bersifat…",
+        "options": [
+            "Wajib",
+            "Dasar",
+            "Pilihan",
+            "Tambahan"
+        ],
+        "correct": "Dasar"
+    },
+    {
+        "id": 4,
+        "question": "Yang termasuk landasan Pendidikan Kewarganegaraan adalah…",
+        "options": [
+            "Perjuangan mencapai kemerdekaan",
+            "Melaksanakan Upacara Bendera",
+            "Mempelajari kesenian daerah",
+            "Mengikuti lomba 17 Agustus"
+        ],
+        "correct": "Perjuangan mencapai kemerdekaan"
+    },
+    {
+        "id": 5,
+        "question": "Yang tidak termasuk dalam ruang lingkup Pendidikan Kewarganegaraan adalah…",
+        "options": [
+            "Wawasan Nusantara",
+            "Demokrasi",
+            "Ketahanan Nasional",
+            "Enterprenership"
+        ],
+        "correct": "Enterprenership"
+    },
+    {
+        "id": 6,
+        "question": "Dalam Pendidikan Kewarganegaraan, eksistensi warga negara dan dinamikanya dalam kehidupan bermasyarakat, berbangsa, dan bernegara Indonesia merupakan objek…",
+        "options": [
+            "Substansi",
+            "Non formal",
+            "Formal",
+            "Material"
+        ],
+        "correct": "Material"
+    },
+    {
+        "id": 7,
+        "question": "Wawasan Nusantara merupakan kebulatan wilayah nasional, termasuk satu kesatuan bangsa, satu tujuan dan tekad perjuangan, satu kesatuan hukum, satu kesatuan sosial budaya, satu kesatuan ekonomi, dan satu kesatuan hankam merupakan pengertian Wawasan Nusantara menurut…",
+        "options": [
+            "Lembaga Ketahanan Nasional",
+            "Hasan Habib",
+            "Wan Usman",
+            "Majelis Permusyawaratan Rakyat"
+        ],
+        "correct": "Hasan Habib"
+    },
+    {
+        "id": 8,
+        "question": "Salah satu makna Wawasan Nusantara sebagai kesatuan politik yaitu Bangsa Indonesia hidup berdampingan dengan bangsa lain dan berperan dalam hal-hal berikut ini kecuali….",
+        "options": [
+            "Menganut politik luar negeri bebas aktif",
+            "Menciptakan ketertiban dunia yang berdasarkan kemerdekaan, perdamaian abadi, dan keadilan sosial",
+            "Ikut membantu dalam menyelesaikan permasalahan negara lain",
+            "Mengutamakan kepentingan nasional"
+        ],
+        "correct": "Ikut membantu dalam menyelesaikan permasalahan negara lain"
+    },
+    {
+        "id": 9,
+        "question": "Negara merupakan organisme yang hidup merupakan pengertian geopolitik yang dikemukakan oleh….",
+        "options": [
+            "Hasan Habib",
+            "Rudolf Kjellen",
+            "Frederich Ratzel",
+            "Karl Haushofer"
+        ],
+        "correct": "Frederich Ratzel"
+    },
+    {
+        "id": 10,
+        "question": "Wawasan benua yang dikemukakan oleh Sir Halford Mackinder dan Karl Haushofer menyatakan bahwa negara yang bisa menguasai dunia apabila bisa menguasai…..",
+        "options": [
+            "Cina",
+            "Eropa Timur",
+            "Eropa Barat",
+            "Amerika"
+        ],
+        "correct": "Eropa Timur"
+    },
+    {
+      "id": 11,
+      "question": "Kasus sentimen etnis dan ketegangan karena persoalan kebudayaan, agama, dan etnis yang mengancam integritas nasional Negara Yugoslavia dipicu oleh banyaknya suku bangsa yang bermukim di wilayah dan lembah……",
+      "options": [
+          "Semenanjung Suez",
+          "Semenanjung Balkan",
+          "Semenanjung Sinai",
+          "Eropa Tengah"
+      ],
+      "correct": "Semenanjung Balkan"
+  },
+  {
+      "id": 12,
+      "question": "Integrasi nasional bagi Bangsa Indonesia mutlak diperlukan karena terdiri dari berbagai hal-hal sebagai berikut, kecuali….",
+      "options": [
+          "Kondisi sosial yang berbeda",
+          "Sumberdaya alam yang sama",
+          "Keberagaman etnis",
+          "Keberagaman budaya"
+      ],
+      "correct": "Sumberdaya alam yang sama"
+  },
+  {
+      "id": 13,
+      "question": "Integrasi nasional berasal dari situasi dan kondisi masyarakat Indonesia yang….",
+      "options": [
+          "Individualis",
+          "Liberalis",
+          "Sosialis",
+          "Majemuk"
+      ],
+      "correct": "Majemuk"
+  },
+  {
+      "id": 14,
+      "question": "Integrasi nasional terbentuk karena suatu latar belakang sejarah yang sama yang dialami suatu bangsa misalnya keterjajahan, penderitaan karena faktor eksternal seperti penjajahan, hal ini merupakan proses pembentukan integritas berdasarkan aspek….",
+      "options": [
+          "Aspek historis",
+          "Aspek manfaat",
+          "Aspek filosofis",
+          "Aspek ekonomi"
+      ],
+      "correct": "Aspek historis"
+  },
+  {
+      "id": 15,
+      "question": "Integrasi nasional merupakan penyatuan bagian-bagian yang berbeda dari suatu masyarakat menjadi suatu keseluruhan yang lebih utuh, atau memadukan masyarakat-masyarakat kecil yang banyak jumlahnya menjadi suatu bangsa. Hal ini merupakan pengertian integrasi nasional dari…",
+      "options": [
+          "Kamus Besar Bahasa Indonesia",
+          "Undang-Undang Dasar Negara Republik Indonesia 1945",
+          "Taniredja dkk tahun 2009",
+          "GBHN"
+      ],
+      "correct": "Taniredja dkk tahun 2009"
+  },
+  {
+      "id": 16,
+      "question": "Dalam geostrategi, sistem politik Indonesia adalah demokrasi Pancasila yang berciri…",
+      "options": [
+          "Individualis",
+          "Liberal",
+          "Kekeluargaan",
+          "Kompetisi"
+      ],
+      "correct": "Kekeluargaan"
+  },
+  {
+      "id": 17,
+      "question": "Pengelolaan dan pemanfaatan sumber daya alam harus dimanfaatkan untuk memakmurkan dan mensejahterakan rakyat serta mengurangi ketergantungan dengan negara lain, hal ini merupakan pengertian dari asas….",
+      "options": [
+          "Asas daya saing",
+          "Asas lestari",
+          "Asas maksimal",
+          "Asas manfaat"
+      ],
+      "correct": "Asas daya saing"
+  },
+  {
+      "id": 18,
+      "question": "Berikut yang bukan merupakan landasan geostrategi dan geopolitik adalah…",
+      "options": [
+          "Posisi Indonesia yang berada di antara dua benua Asia dan Australia",
+          "Agama dan aliran kepercayaan di Indonesia",
+          "Posisi Indonesia yang berada di antara dua samudra, Hindia dan Pasifik",
+          "Demografi Indonesia"
+      ],
+      "correct": "Agama dan aliran kepercayaan di Indonesia"
+  },
+  {
+      "id": 19,
+      "question": "Segala upaya untuk mempertahankan negara kesatuan Republik Indonesia dengan cara meningkatkan kesadaran berbangsa dan bernegara, menanamkan kecintaan terhadap tanah air serta berperan aktif dalam memajukan bangsa dan negara, termasuk penanggulangan ancaman, hal ini merupakan pengertian dari bela negara secara….",
+      "options": [
+          "Objektif",
+          "Non fisik",
+          "Subjektif",
+          "Fisik"
+      ],
+      "correct": "Non fisik"
+  },
+  {
+      "id": 20,
+      "question": "Ketahanan nasional Indonesia dirumuskan berdasarkan Asta Gatra. Aspek sosial dari Asta Gatra adalah…",
+      "options": [
+          "Ideologi",
+          "Geografi",
+          "Kekayaan alam",
+          "Kependudukan"
+      ],
+      "correct": "Ideologi"
+  },
+  {
+    "id": 21,
+    "question": "Berikut yang bukan merupakan konsep Sistem demokrasi adalah:",
+    "options": [
+        "sesuai dengan hakikat manusia sebagai makhluk individual",
+        "sesuai dengan hakikat kedudukan kodrat manusia sebagai makhluk yang bebas",
+        "sesuai dengan hakikat manusia sebagai manusia yang kreatif",
+        "sesuai dengan hakikat manusia sebagai makhluk sosial"
+    ],
+    "correct": "sesuai dengan hakikat manusia sebagai manusia yang kreatif"
+},
+{
+    "id": 22,
+    "question": "Aturan tentang kewajiban warga negara untuk mematuhi dan mentaati segala peraturan perundang-undangan yang tercantum dalam UUD NRI tahun 1945 bersifat…..",
+    "options": [
+        "Parsial",
+        "Universal",
+        "Sturuktural",
+        "Komprehensif"
+    ],
+    "correct": "Komprehensif"
+},
+{
+    "id": 23,
+    "question": "Berikut yang bukan termasuk legal equity rights yaitu…….",
+    "options": [
+        "Hak untuk mendapatkan perlakuan yang sama dalam hukum dan pemerintahan",
+        "Hak untuk menjadi pegawai negeri sipil",
+        "Hak kebebasan mengeluarkan atau menyatakan pendapat",
+        "Hak mendapatkan layanan dan perlindungan hukum"
+    ],
+    "correct": "Hak kebebasan mengeluarkan atau menyatakan pendapat"
+},
+{
+    "id": 24,
+    "question": "Hak asasi manusia sebagai gagasan, paradigma serta kerangka konseptual, muncul dalam proses yang sangat panjang merupakan pendekatan Hak Asasi Manusia secara…",
+    "options": [
+        "Historis",
+        "Ontologi",
+        "Etimologi",
+        "Aksiologi"
+    ],
+    "correct": "Historis"
+},
+{
+    "id": 25,
+    "question": "Hak yang dimiliki oleh setiap manusia tersebut perlu dijaga, dihormati, dijunjung tinggi, oleh siapa pun termasuk juga oleh negara, tujuannya adalah....",
+    "options": [
+        "Demi penghormatan terhadap harkat dan martabat manusia",
+        "Melatih moralitas manusia",
+        "Menjunjung tinggi hukum dan aturan perundang-undangan",
+        "Menjaga nama baik Indonesia di mata dunia"
+    ],
+    "correct": "Demi penghormatan terhadap harkat dan martabat manusia"
+},
+{
+    "id": 26,
+    "question": "Berikut yang bukan identitas nasional dalam arti fisik yaitu…",
+    "options": [
+        "Lambang negara",
+        "Jati diri psikis bangsa",
+        "Bahasa Indonesia",
+        "Bendera Merah Putih"
+    ],
+    "correct": "Jati diri psikis bangsa"
+},
+{
+    "id": 27,
+    "question": "Pancasila sering disebut sebagai way of life, weltanschauung, pandangan dunia, pandangan hidup, pegangan hidup, pedoman hidup, petunjuk hidup. Implikasi dari hal ini adalah....",
+    "options": [
+        "Pancasila menjadi cita-cita moral bangsa yang memberikan pedoman dan kekuatan rohaniah bagi bangsa untuk berperilaku luhur dalam kehidupan individual saja",
+        "Semua tingkah laku dan tindak perbuatan setiap manusia Indonesia harus dijiwai dan merupakan pancaran dari nilai-nilai semua sila Pancasila meskipun secara parsial dan terpisah-pisah",
+        "Pemahaman tentang Pancasila sebagai pandangan hidup bangsa Indonesia berarti nilai-nilainya dipergunakan sebagai petunjuk hidup sehari-hari, seperti sebuah agama",
+        "Semua tingkah laku dan tindak perbuatan setiap manusia Indonesia harus dijiwai dan merupakan pancaran dari nilai-nilai semua sila Pancasila"
+    ],
+    "correct": "Semua tingkah laku dan tindak perbuatan setiap manusia Indonesia harus dijiwai dan merupakan pancaran dari nilai-nilai semua sila Pancasila"
+},
+{
+    "id": 28,
+    "question": "Negara Indonesia bukan negara untuk satu orang dan untuk satu golongan, tetapi negara didasarkan atas rakyat, tidak pada golongan, tidak pada perseorangan yang berdasarkan permusyawaratan dan gotong royong, berdasarkan kekuasaan yang ada pada rakyat (kedaulatan rakyat). Pernyataan tersebut adalah isi arti dari sila Pancasila....",
+    "options": [
+        "sila keempat",
+        "sila ketiga",
+        "sila pertama",
+        "sila kelima"
+    ],
+    "correct": "sila keempat"
+},
+{
+    "id": 29,
+    "question": "Ketentuan tentang Bahasa Negara diatur dalam Undang-undang No.24 Tahun 2009 pasal….",
+    "options": [
+        "Pasal 58 sampai Pasal 64",
+        "Pasal 4 sampai Pasal 24",
+        "Pasal 46 sampai Pasal 57",
+        "Pasal 25 sampai Pasal 45"
+    ],
+    "correct": "Pasal 25 sampai Pasal 45"
+},
+{
+    "id": 30,
+    "question": "Kongres Sumpah Pemuda Tahun 1928 semakin mempertegas identitas nasional Indonesia. Berikut yang bukan merupakan hasil kongres tersebut adalah….",
+    "options": [
+        "Bangsa Indonesia mengaku bertanah air yang satu, tanah air Indonesia",
+        "Bangsa Indonesia mengaku bernegara yang satu, negara Indonesia",
+        "Bangsa Indonesia mengaku berbangsa yang satu, bangsa Indonesia",
+        "Bangsa Indonesia menjunjung bahasa persatuan, bahasa Indonesia"
+    ],
+    "correct": "Bangsa Indonesia mengaku bernegara yang satu, negara Indonesia"
+},
+{
+  "id": 31,
+  "question": "Di bawah ini yang tidak termasuk kekurangan di dalam sistem pengelolaan negara yang sentralistik adalah....",
+  "options": [
+      "Pemerintah daerah memiliki otonomi dan kebebasan untuk mengelola wilayahnya",
+      "Tidak bebasnya pengelolaan keuangan pemerintah daerah",
+      "Terjadinya kesenjangan harga barang di daerah yang satu dengan daerah yang lain",
+      "Tidak meratanya pembangunan di berbagai wilayah di Indonesia"
+  ],
+  "correct": "Pemerintah daerah memiliki otonomi dan kebebasan untuk mengelola wilayahnya"
+},
+{
+  "id": 32,
+  "question": "Di dalam konteks kehidupan berbangsa dan bernegara Indonesia, pembahasan tentang good and clean governance ini menjadi pembahasan yang penting dan relevan karena beberapa alasan. Di bawah ini, alasan yang paling tepat pentingnya pembahasan tentang good governance tersebut adalah....",
+  "options": [
+      "Sebagai negara demokrasi maka sudah menjadi keharusan bahwa pemerintahan yang dijalankan harus sebersih dan sebaik mungkin, dengan berpegang pada prinsip-prinsip pemerintahan yang demokratis",
+      "Agar Indonesia menjadi negara populer di dunia internasional",
+      "Agar Indonesia lebih mudah mendapatkan pinjaman luar negeri",
+      "Agar meningkatkan partisipasi warga negara di dalam bidang politik"
+  ],
+  "correct": "Sebagai negara demokrasi maka sudah menjadi keharusan bahwa pemerintahan yang dijalankan harus sebersih dan sebaik mungkin, dengan berpegang pada prinsip-prinsip pemerintahan yang demokratis"
+},
+{
+  "id": 33,
+  "question": "Konstitusi berasal dari bahasa Belanda “gronwet” yang artinya…..",
+  "options": [
+      "Peraturan",
+      "Tanah basah",
+      "Pembentukan",
+      "Undang-Undang Dasar"
+  ],
+  "correct": "Undang-Undang Dasar"
+},
+{
+  "id": 34,
+  "question": "Berikut yang bukan kondisi akibat tidak berfungsinya suatu negara yaitu…..",
+  "options": [
+      "Serangan dari luar tidak dapat diantisipasi",
+      "Kesejahteraan umum tidak merata",
+      "Keamanan dan ketertiban tidak terwujud",
+      "Bencana alam beturut-turut terjadi"
+  ],
+  "correct": "Bencana alam beturut-turut terjadi"
+},
+{
+  "id": 35,
+  "question": "Raja dianggap sebagai wakil dari Tuhan sehingga apa kata Raja itu identik dengan apa kata Tuhan atau sesuai dengan keinginan Tuhan. Hal ini merupakan berhubungan dengan salah satu teori tentang terjadinya negara menurut...",
+  "options": [
+      "Teori Ketuhanan",
+      "Teori Tata Negara",
+      "Teori Hukum Alam",
+      "Teori Perjanjian"
+  ],
+  "correct": "Teori Ketuhanan"
+},
+{
+  "id": 36,
+  "question": "Bangsa memiliki tiga konsep sebagai berikut kecuali…..",
+  "options": [
+      "Bangsa dalam arti politis",
+      "Bangsa dalam arti etnis",
+      "Bangsa dalam arti budaya",
+      "Bangsa dalam arti sejarah"
+  ],
+  "correct": "Bangsa dalam arti sejarah"
+},
+{
+  "id": 37,
+  "question": "Tingkat demokratis suatu negara dapat dinilai berdasarkan hal-hal berikut ini kecuali…..",
+  "options": [
+      "Pembatasan pemerintah secara institusional",
+      "Hak-hak minoritas",
+      "Jaminan hak asasi manusia",
+      "Kekuasaan mayoritas"
+  ],
+  "correct": "Pembatasan pemerintah secara institusional"
+},
+{
+  "id": 38,
+  "question": "Dalam Pancasila sila keempat, klausul “...yang Dipimpin Oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan”, kata Permusyawaratan/Perwakilan mengandung arti…",
+  "options": [
+      "Demokrasi tak langsung",
+      "Individu tidak memiliki suara",
+      "Musyawarah dilakukan dalam semua lini kehidupan",
+      "Manfaat musyawarah"
+  ],
+  "correct": "Demokrasi tak langsung"
+},
+{
+  "id": 39,
+  "question": "Berikut yang bukan negara yang menganut sistem demokrasi parlementer yaitu…",
+  "options": [
+      "India",
+      "Inggris",
+      "Malaysia",
+      "Filipina"
+  ],
+  "correct": "Filipina"
+},
+{
+  "id": 40,
+  "question": "Masa dimana Renaissance dan reformasi spiritual membawa masyarakat Eropa untuk berani berpikir sendiri disebut…..",
+  "options": [
+      "Aufklarung",
+      "Kegelapan",
+      "Renaissance",
+      "Peradaban"
+  ],
+  "correct": "Aufklarung"
+},
+{
+  "id": 41,
+  "question": "Demokrasi berasal dari kata di dalam bahasa Yunani, yaitu kata “demos” dan “kratein” atau “kratos”. “Kratein” berarti….",
+  "options": [
+      "Negara",
+      "Rakyat",
+      "Kekuasaan",
+      "Bangsa"
+  ],
+  "correct": "Kekuasaan"
+},
+{
+  "id": 42,
+  "question": "Wawasan Nusantara sebagai wawasan pembangunan nasional mengutamakan persatuan bangsa dan kesatuan wilayah yang mencakup kesatuan …..",
+  "options": [
+      "Politik",
+      "Sumber daya manusia",
+      "Wilayah",
+      "Sumber daya alam"
+  ],
+  "correct": "Politik"
+},
+{
+  "id": 43,
+  "question": "Konsep good governance adalah sebuah konsep yang tidak dapat dipisahkan dari konsep demokrasi. Alasan yang mendasari hal tersebut adalah....",
+  "options": [
+      "Good governance menjadi syarat untuk menjalankan demokrasi",
+      "Good governance dilandasi oleh satu asumsi bahwa kehendak atau keinginan rakyat adalah yang paling penting",
+      "Good governance lahir dari demokrasi",
+      "Demokrasi merupakan sistem politik yang paling populer untuk saat ini"
+  ],
+  "correct": "Good governance dilandasi oleh satu asumsi bahwa kehendak atau keinginan rakyat adalah yang paling penting"
+},
+{
+  "id": 44,
+  "question": "Negara adalah institusi yang dimiliki oleh warga negara secara bersama-sama, oleh karenanya warga negara memiliki hak untuk ikut andil di dalam pemerintahan. Penjelasan tersebut adalah implementasi dari prinsip good governance, yaitu....",
+  "options": [
+      "Partisipasi",
+      "Transparansi",
+      "Efektif dan efisien",
+      "Akuntabilitas"
+  ],
+  "correct": "Partisipasi"
+},
+{
+  "id": 45,
+  "question": "Berikut yang bukan manfaat Character building adalah……",
+  "options": [
+      "memiliki jatidiri yang kuat",
+      "penguatan kepribadian dan karakter bangsa",
+      "menurunkan inflasi perekonomian",
+      "mampu menyelesaikan permasalahan yang pelik"
+  ],
+  "correct": "menurunkan inflasi perekonomian"
+},
+{
+  "id": 46,
+  "question": "Tujuan dari konstitusi adalah untuk ….",
+  "options": [
+      "Memperkuat pertahanan dan keamanan negara",
+      "Membatasi kekuasaan dari penguasa dan mengatur jalannya penyelenggaraan negara",
+      "Melindungi kebudayaan nasional",
+      "Menciptakan kesatuan dalam keberagaman"
+  ],
+  "correct": "Membatasi kekuasaan dari penguasa dan mengatur jalannya penyelenggaraan negara"
+},
+{
+  "id": 47,
+  "question": "Pentingnya mempelajari konstitusi suatu negara adalah untuk….",
+  "options": [
+      "Mengetahui adat istiadat yang ada di suatu negara",
+      "Mengatahui rencana pembangunan suatu negara",
+      "Mengenal bagaimana cara kerja negara membangunan sistem ketatanegaraannya",
+      "Mengenal kebudayaan negara"
+  ],
+  "correct": "Mengenal bagaimana cara kerja negara membangunan sistem ketatanegaraannya"
+},
+{
+  "id": 48,
+  "question": "Berikut yang bukan merupakan cita-cita negara Indonesia adalah…",
+  "options": [
+      "Menjadi negara yang bersatu",
+      "Menjadi negara yang berdaulat",
+      "Menjadi negara yang adil",
+      "Menjadi negara yang merdeka"
+  ],
+  "correct": "Menjadi negara yang merdeka"
+},
+{
+  "id": 49,
+  "question": "Di bawah ini yang bukan termasuk prinsip-prinsip good governance adalah....",
+  "options": [
+      "Responsif",
+      "Akuntabilitas",
+      "Komprehensif",
+      "Taat hukum"
+  ],
+  "correct": "Komprehensif"
+},
+{
+  "id": 50,
+  "question": "Yang termasuk di dalam azas umum otonomi daerah adalah....",
+  "options": [
+      "Dekonsentrasi",
+      "Tertib penyelenggaraan negara",
+      "Desentralisasi",
+      "Tugas Pembaruan"
+  ],
+  "correct": "Tertib penyelenggaraan negara"
+}
     ]  
     
 }

@@ -1,310 +1,414 @@
-class Quiz {  
-    constructor(questions) {  
-        this.questions = questions;  
-        this.currentQuestionIndex = 0;  
-        this.selectedAnswers = new Array(questions.length).fill(null);  
+class Quiz {
+    constructor() {
+        this.questions = [];
+        this.selectedQuestions = [];
+        this.currentQuestionIndex = 0;
+        this.score = 0;
+        this.timer = null;
+        this.timeLeft = 0;
         
-        // Elemen DOM  
-        this.questionNumberElement = document.getElementById('question-number');  
-        this.questionTextElement = document.getElementById('question-text');  
-        this.optionsContainer = document.getElementById('options-container');  
-        this.prevBtn = document.getElementById('prev-btn');  
-        this.nextBtn = document.getElementById('next-btn');  
-        this.submitBtn = document.getElementById('submit-btn');  
-        this.timerElement = document.getElementById('timer');  
-        this.quizArea = document.getElementById('quiz-area');  
-        this.resultArea = document.getElementById('result-area');  
-        this.scoreSummary = document.getElementById('score-summary');  
-        this.detailedResults = document.getElementById('detailed-results');  
-
-        this.timeLimit = questions.length * 60; // 1 menit per soal  
-        this.timeRemaining = this.timeLimit;  
-        this.timer = null;  
-
-        // Pelacakan waktu per soal  
-        this.questionTimings = questions.map(() => ({  
-            startTime: null,  
-            endTime: null,  
-            interactions: []  
-        }));  
-
-        this.bindEvents();  
-    }  
-
-    bindEvents() {  
-        this.nextBtn.addEventListener('click', () => this.nextQuestion());  
-        this.prevBtn.addEventListener('click', () => this.previousQuestion());  
-        this.submitBtn.addEventListener('click', () => this.submitQuiz());  
-    }  
-
-    start() {  
-        // Reset tampilan  
-        this.quizArea.style.display = 'block';  
-        this.resultArea.style.display = 'none';  
-
-        // Mulai dari pertanyaan pertama  
-        this.currentQuestionIndex = 0;  
-        this.displayQuestion();  
-        this.startTimer();  
-    }  
-
-    displayQuestion() {  
-        const currentQuestion = this.questions[this.currentQuestionIndex];  
+        // Elements
+        this.questionCountSelect = document.getElementById('question-count');
+        this.startButton = document.getElementById('start-quiz');
+        this.quizIntro = document.getElementById('quiz-intro');
+        this.quizArea = document.getElementById('quiz-area');
+        this.questionList = document.getElementById('question-list');
+        this.questionText = document.getElementById('question-text');
+        this.optionsContainer = document.getElementById('options-container');
+        this.questionNumber = document.getElementById('question-number');
+        this.timerElement = document.getElementById('timer');
+        this.nextButton = document.getElementById('next-btn');
+        this.prevButton = document.getElementById('prev-btn');
+        this.submitButton = document.getElementById('submit-btn');
+        this.resultArea = document.getElementById('result-area');
+        this.scoreSummary = document.getElementById('score-summary');
+        this.detailedResults = document.getElementById('detailed-results');
+        this.restartButton = document.getElementById('restart-quiz');
+        this.restartButton.addEventListener('click', () => this.restartQuiz());
+        this.questionStartTime = 0;
+        this.questionDurations = [];
         
-        // Catat waktu mulai untuk soal saat ini  
-        const currentTiming = this.questionTimings[this.currentQuestionIndex];  
-        currentTiming.startTime = new Date();  
-        currentTiming.interactions.push({  
-            type: 'display',  
-            timestamp: new Date()  
-        });  
+        // Tambahkan event listeners untuk tombol navigasi
+        this.nextButton.addEventListener('click', () => this.nextQuestion());
+        this.prevButton.addEventListener('click', () => this.prevQuestion());
+        this.submitButton.addEventListener('click', () => this.finishQuiz());
+        
+        this.userAnswers = [];
+        
+        this.initializeQuiz();
+    }
 
-        // Update nomor soal  
-        this.questionNumberElement.textContent = `Soal ${this.currentQuestionIndex + 1} dari ${this.questions.length}`;  
-        
-        // Update teks soal  
-        this.questionTextElement.textContent = currentQuestion.question;  
-        
-        // Bersihkan opsi sebelumnya  
-        this.optionsContainer.innerHTML = '';  
-        
-        // Tampilkan opsi jawaban  
-        currentQuestion.options.forEach(option => {  
-            const optionButton = document.createElement('button');  
-            optionButton.textContent = option;  
-            optionButton.classList.add('option-btn');  
-            optionButton.addEventListener('click', () => this.selectOption(option));  
+    async initializeQuiz() {
+        try {
+            await this.loadQuestions();
+            this.setupQuestionCountOptions();
+            this.addEventListeners();
+        } catch (error) {
+            console.error('Error initializing quiz:', error);
+        }
+    }
+
+    async loadQuestions() {
+        try {
+            const response = await fetch('SI.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             
-            // Tandai jawaban yang sudah dipilih sebelumnya  
-            if (this.selectedAnswers[this.currentQuestionIndex] === option) {  
-                optionButton.classList.add('selected');  
-            }  
+            const data = await response.json();
+            if (!data.questions || !Array.isArray(data.questions)) {
+                throw new Error('Format data soal tidak valid');
+            }
             
-            this.optionsContainer.appendChild(optionButton);  
-        });  
+            this.questions = data.questions;
+            console.log(`Berhasil memuat ${this.questions.length} soal`);
+        } catch (error) {
+            console.error('Error loading questions:', error);
+            alert('Gagal memuat soal: ' + error.message);
+        }
+    }
 
-        this.updateNavigationButtons();  
-    }  
-
-    selectOption(option) {  
-        const currentTiming = this.questionTimings[this.currentQuestionIndex];  
+    setupQuestionCountOptions() {
+        // Bersihkan opsi yang ada
+        this.questionCountSelect.innerHTML = '';
         
-        // Catat interaksi pemilihan  
-        currentTiming.interactions.push({  
-            type: 'select',  
-            option: option,  
-            timestamp: new Date()  
-        });  
-
-        // Hapus seleksi sebelumnya  
-        this.optionsContainer.querySelectorAll('.option-btn').forEach(btn => {  
-            btn.classList.remove('selected');  
-        });  
-
-        // Pilih opsi baru  
-        event.target.classList.add('selected');  
-        this.selectedAnswers[this.currentQuestionIndex] = option;  
-    }  
-
-    nextQuestion() {  
-        const currentTiming = this.questionTimings[this.currentQuestionIndex];  
+        // Tentukan increment dan maksimum jumlah soal
+        const totalQuestions = this.questions.length;
+        const increments = [5, 10, 15, 20, 25, 30, 40, 50];
         
-        // Catat transisi  
-        currentTiming.interactions.push({  
-            type: 'next',  
-            timestamp: new Date()  
-        });  
-        currentTiming.endTime = new Date();  
+        // Tambahkan opsi berdasarkan jumlah soal yang tersedia
+        increments.forEach(num => {
+            if (num <= totalQuestions) {
+                const option = document.createElement('option');
+                option.value = num;
+                option.textContent = `${num} Soal`;
+                this.questionCountSelect.appendChild(option);
+            }
+        });
 
-        if (this.currentQuestionIndex < this.questions.length - 1) {  
-            this.currentQuestionIndex++;  
-            this.displayQuestion();  
-        }  
-    }  
+        // Jika jumlah soal tidak sesuai dengan increment, tambahkan sebagai opsi terakhir
+        if (!increments.includes(totalQuestions)) {
+            const option = document.createElement('option');
+            option.value = totalQuestions;
+            option.textContent = `${totalQuestions} Soal`;
+            this.questionCountSelect.appendChild(option);
+        }
 
-    previousQuestion() {  
-        const currentTiming = this.questionTimings[this.currentQuestionIndex];  
+        console.log(`Opsi jumlah soal telah diperbarui. Total soal tersedia: ${totalQuestions}`);
+    }
+
+    addEventListeners() {
+        // Event listener untuk select box
+        this.questionCountSelect.addEventListener('change', (e) => {
+            console.log(`Jumlah soal dipilih: ${e.target.value}`);
+        });
+
+        // Event listener untuk tombol mulai
+        this.startButton.addEventListener('click', () => {
+            const selectedCount = parseInt(this.questionCountSelect.value);
+            this.startQuiz(selectedCount);
+        });
+    }
+
+    startQuiz(questionCount) {
+        // Validasi jumlah soal
+        if (!questionCount || questionCount <= 0) {
+            alert('Silakan pilih jumlah soal terlebih dahulu');
+            return;
+        }
+
+        // Acak dan pilih soal sesuai jumlah yang diminta
+        this.selectedQuestions = this.shuffleQuestions(questionCount);
+        this.currentQuestionIndex = 0;
         
-        // Catat transisi  
-        currentTiming.interactions.push({  
-            type: 'previous',  
-            timestamp: new Date()  
-        });  
-        currentTiming.endTime = new Date();  
+        // Sembunyikan intro dan tampilkan area kuis
+        this.quizIntro.style.display = 'none';
+        this.quizArea.style.display = 'flex';
 
-        if (this.currentQuestionIndex > 0) {  
-            this.currentQuestionIndex--;  
-            this.displayQuestion();  
-        }  
-    }  
+        // Setup navigasi soal di sidebar
+        this.setupQuestionNavigation();
+        
+        // Set waktu 1 menit per soal
+        this.timeLeft = questionCount * 60; // 60 detik per soal
+        this.startTimer();
+        
+        // Tampilkan soal pertama
+        this.displayQuestion();
 
-    updateNavigationButtons() {  
-        this.prevBtn.style.display = this.currentQuestionIndex > 0 ? 'block' : 'none';  
-        this.nextBtn.style.display = this.currentQuestionIndex < this.questions.length - 1 ? 'block' : 'none';  
-        this.submitBtn.style.display = this.currentQuestionIndex === this.questions.length - 1 ? 'block' : 'none';  
-    }  
+        console.log('Kuis dimulai dengan', questionCount, 'soal');
+    }
 
-    startTimer() {  
-        this.timer = setInterval(() => {  
-            this.timeRemaining--;  
+    shuffleQuestions(count) {
+        // Acak soal dan ambil sejumlah yang diminta
+        const shuffled = [...this.questions].sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, count);
+    }
+
+    setupQuestionNavigation() {
+        this.questionList.innerHTML = '';
+        this.selectedQuestions.forEach((_, index) => {
+            const button = document.createElement('button');
+            button.className = 'question-nav-item';
+            button.textContent = `Soal ${index + 1}`;
+            button.addEventListener('click', () => this.jumpToQuestion(index));
+            this.questionList.appendChild(button);
+        });
+    }
+
+    displayQuestion() {
+        const question = this.selectedQuestions[this.currentQuestionIndex];
+        this.questionNumber.textContent = `Soal ${this.currentQuestionIndex + 1}`;
+        this.questionText.textContent = question.question;
+        
+        // Tampilkan opsi jawaban
+        this.optionsContainer.innerHTML = '';
+        question.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'option-button';
+            button.textContent = option;
+            button.addEventListener('click', () => this.selectAnswer(index));
+            this.optionsContainer.appendChild(button);
+        });
+
+        // Update status tombol navigasi
+        this.updateNavigationButtons();
+        
+        // Update navigasi sidebar
+        this.updateQuestionNavigation();
+        this.questionStartTime = Date.now();
+    }
+
+    updateQuestionNavigation() {
+        const navButtons = this.questionList.getElementsByClassName('question-nav-item');
+        Array.from(navButtons).forEach((button, index) => {
+            button.classList.toggle('active', index === this.currentQuestionIndex);
+        });
+    }
+
+    jumpToQuestion(index) {
+        if (index >= 0 && index < this.selectedQuestions.length) {
+            this.currentQuestionIndex = index;
+            this.displayQuestion();
+        }
+    }
+
+    selectAnswer(optionIndex) {
+        const duration = (Date.now() - this.questionStartTime) / 1000;
+        this.questionDurations[this.currentQuestionIndex] = duration;
+        
+        // Simpan jawaban user
+        this.userAnswers[this.currentQuestionIndex] = optionIndex;
+        
+        // Update tampilan tombol
+        const buttons = this.optionsContainer.getElementsByClassName('option-button');
+        Array.from(buttons).forEach((button, index) => {
+            button.classList.toggle('selected', index === optionIndex);
+        });
+
+        // Update status soal di sidebar
+        this.updateQuestionStatus(this.currentQuestionIndex, true);
+    }
+
+    updateQuestionStatus(index, answered) {
+        const navButtons = this.questionList.getElementsByClassName('question-nav-item');
+        if (answered) {
+            navButtons[index].classList.add('answered');
+        }
+    }
+
+    startTimer() {
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
+
+        this.updateTimerDisplay();
+        
+        this.timer = setInterval(() => {
+            this.timeLeft--;
+            this.updateTimerDisplay();
+
+            if (this.timeLeft <= 0) {
+                this.endQuiz();
+            }
+        }, 1000);
+    }
+
+    updateTimerDisplay() {
+        const minutes = Math.floor(this.timeLeft / 60);
+        const seconds = this.timeLeft % 60;
+        this.timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        
+        // Warna merah jika waktu < 20% tersisa
+        if (this.timeLeft < (this.selectedQuestions.length * 60 * 0.2)) {
+            this.timerElement.style.color = '#dc3545';
+        }
+    }
+
+    endQuiz() {
+        clearInterval(this.timer);
+        // Implementasi logika ketika waktu habis
+        alert('Waktu telah habis!');
+        this.showResults();
+    }
+
+    showResults() {
+        // Sembunyikan area kuis
+        this.quizArea.style.display = 'none';
+        
+        // Tampilkan area hasil
+        this.resultArea.style.display = 'block';
+        
+        // Hitung dan tampilkan skor
+        const totalQuestions = this.selectedQuestions.length;
+        const percentage = (this.score / totalQuestions) * 100;
+        
+        this.scoreSummary.innerHTML = `
+            <h3>Ringkasan Hasil</h3>
+            <p>Jawaban Benar: ${this.score} dari ${totalQuestions}</p>
+            <p>Nilai: ${percentage.toFixed(2)}%</p>
+        `;
+
+        // Tampilkan detail jawaban
+        this.detailedResults.innerHTML = '<h3>Detail Jawaban</h3>';
+        this.selectedQuestions.forEach((question, index) => {
+            const userAnswer = this.userAnswers[index] !== undefined ? 
+                question.options[this.userAnswers[index]] : 'Tidak dijawab';
+            const isCorrect = userAnswer === question.correct;
             
-            const minutes = Math.floor(this.timeRemaining / 60);  
-            const seconds = this.timeRemaining % 60;  
-            
-            this.timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;  
+            this.detailedResults.innerHTML += `
+                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <p><strong>Soal ${index + 1}:</strong> ${question.question}</p>
+                    <p>Jawaban Anda: ${userAnswer}</p>
+                    <p>Jawaban Benar: ${question.correct}</p>
+                </div>
+            `;
+        });
 
-            if (this.timeRemaining <= 0) {  
-                this.submitQuiz();  
-            }  
-        }, 1000);  
-    }  
+        // Tambahkan section untuk durasi dan grafik
+        this.detailedResults.innerHTML += `
+            <div class="duration-section">
+                <h3>Durasi Pengerjaan per Soal</h3>
+                <div class="duration-chart">
+                    <canvas id="durationChart"></canvas>
+                </div>
+                <div class="duration-list">
+                    ${this.questionDurations.map((duration, index) => `
+                        <div class="duration-item">
+                            <span>Soal ${index + 1}:</span>
+                            <span>${duration.toFixed(1)} detik</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
 
-    submitQuiz() {  
-        // Hentikan timer  
-        clearInterval(this.timer);  
+        // Buat grafik menggunakan Chart.js
+        this.createDurationChart();
+    }
+
+    createDurationChart() {
+        const ctx = document.getElementById('durationChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: this.questionDurations.map((_, i) => `Soal ${i + 1}`),
+                datasets: [{
+                    label: 'Durasi (detik)',
+                    data: this.questionDurations,
+                    backgroundColor: '#4A90E2',
+                    borderColor: '#357ABD',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Waktu (detik)'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Tambahkan method untuk membersihkan timer saat quiz selesai
+    cleanup() {
+        if (this.timer) {
+            clearInterval(this.timer);
+            this.timer = null;
+        }
+    }
+
+    nextQuestion() {
+        if (this.currentQuestionIndex < this.selectedQuestions.length - 1) {
+            this.currentQuestionIndex++;
+            this.displayQuestion();
+        }
+    }
+
+    prevQuestion() {
+        if (this.currentQuestionIndex > 0) {
+            this.currentQuestionIndex--;
+            this.displayQuestion();
+        }
+    }
+
+    updateNavigationButtons() {
+        // Tampilkan/sembunyikan tombol Sebelumnya
+        this.prevButton.style.display = this.currentQuestionIndex > 0 ? 'inline-block' : 'none';
         
-        // Sembunyikan area kuis  
-        this.quizArea.style.display = 'none';  
+        // Tampilkan/sembunyikan tombol Selanjutnya dan Selesai
+        if (this.currentQuestionIndex === this.selectedQuestions.length - 1) {
+            this.nextButton.style.display = 'none';
+            this.submitButton.style.display = 'inline-block';
+        } else {
+            this.nextButton.style.display = 'inline-block';
+            this.submitButton.style.display = 'none';
+        }
+    }
+
+    finishQuiz() {
+        clearInterval(this.timer);
+        this.calculateScore();
+        this.showResults();
+    }
+
+    calculateScore() {
+        this.score = 0;
+        this.userAnswers.forEach((answer, index) => {
+            const question = this.selectedQuestions[index];
+            if (answer !== undefined && question.options[answer] === question.correct) {
+                this.score++;
+            }
+        });
+    }
+
+    restartQuiz() {
+        // Reset semua state
+        this.currentQuestionIndex = 0;
+        this.score = 0;
+        this.userAnswers = [];
+        this.timeLeft = 0;
+        this.questionDurations = [];
         
-        // Tampilkan area hasil  
-        this.resultArea.style.display = 'block';  
-
-        // Hitung jawaban benar  
-        let correctAnswers = 0;  
-        const resultDetails = this.questions.map((question, index) => {  
-            const userAnswer = this.selectedAnswers[index];  
-            const isCorrect = userAnswer === question.correct;  
-            
-            if (isCorrect) correctAnswers++;  
-
-            return `  
-                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">  
-                    <strong>Soal ${index + 1}:</strong> ${question.question}<br>  
-                    Jawaban Anda: ${userAnswer || 'Tidak dijawab'}<br>  
-                    Jawaban Benar: ${question.correct}<br>  
-                    Status: ${isCorrect ? '✅ Benar' : '❌ Salah'}  
-                </div>  
-            `;  
-        });  
-
-        // Hitung skor  
-        const scorePercentage = ((correctAnswers / this.questions.length) * 100).toFixed(2);  
-        const isPassed = scorePercentage >= 70;  
-
-        // Tampilkan ringkasan skor  
-        this.scoreSummary.innerHTML = `  
-            <p>Total Soal: ${this.questions.length}</p>  
-            <p>Jawaban Benar: ${correctAnswers}</p>  
-            <p>Skor: ${scorePercentage}%</p>  
-            <p>Status: ${isPassed ? 'LULUS 🎉' : 'TIDAK LULUS 😔'}</p>  
-        `;  
-
-        // Tampilkan detail hasil  
-        this.detailedResults.innerHTML = resultDetails.join('');  
-
-        // Analisis waktu per soal  
-        this.analyzeQuestionTimes();  
-    }  
-
-    analyzeQuestionTimes() {  
-        const timeAnalysis = this.questionTimings.map((timing, index) => {  
-            const totalTime = timing.endTime && timing.startTime   
-                ? (timing.endTime - timing.startTime) / 1000   
-                : 0;  
-
-            return {  
-                questionNumber: index + 1,  
-                time: totalTime,  
-                interactions: timing.interactions.map(i => i.type)  
-            };  
-        });  
-
-        // Tambahkan analisis waktu ke hasil  
-        const timeAnalysisSection = document.createElement('div');  
-        timeAnalysisSection.classList.add('time-analysis');  
-        timeAnalysisSection.innerHTML = `  
-            <h3>Analisis Waktu Pengerjaan Soal</h3>  
-            ${timeAnalysis.map(analysis => `  
-                <div class="time-item">  
-                    Soal ${analysis.questionNumber}:   
-                    ${analysis.time.toFixed(2)} detik   
-                    (Interaksi: ${analysis.interactions.join(', ')})  
-                </div>  
-            `).join('')}  
-        `;  
-
-        this.detailedResults.appendChild(timeAnalysisSection);  
-    }  
-}  
-
-class QuizApp {  
-    constructor() {  
-        this.questions = [];  
-        this.currentQuiz = null;  
+        // Reset tampilan
+        this.resultArea.style.display = 'none';
+        this.quizArea.style.display = 'none';
+        this.quizIntro.style.display = 'block';
         
-        // Elemen DOM  
-        this.startButton = document.getElementById('start-quiz');  
-        this.quizIntro = document.getElementById('quiz-intro');  
-        this.quizArea = document.getElementById('quiz-area');  
-        this.questionCountSelect = document.getElementById('question-count');  
-        
-        this.initializeEventListeners();  
-    }  
+        // Reset timer
+        if (this.timer) {
+            clearInterval(this.timer);
+            this.timer = null;
+        }
+    }
+}
 
-    initializeEventListeners() {  
-        this.startButton.addEventListener('click', () => this.startQuiz());  
-        document.getElementById('restart-quiz').addEventListener('click', () => this.restartQuiz());  
-    }  
-
-    async loadQuestions() {  
-        try {  
-            const response = await fetch('SI.json');  
-            const data = await response.json();  
-
-            if (!data.questions || data.questions.length === 0) {  
-                throw new Error('Tidak ada pertanyaan yang ditemukan');  
-            }  
-
-            this.questions = data.questions;  
-        } catch (error) {  
-            console.error('Error memuat soal:', error);  
-            alert('Gagal memuat soal. Silakan coba lagi.');  
-        }  
-    }  
-
-    startQuiz() {  
-        const questionCount = parseInt(this.questionCountSelect.value);  
-        
-        if (questionCount > this.questions.length) {  
-            alert(`Jumlah soal melebihi total soal (${this.questions.length})`);  
-            return;  
-        }  
-
-        const selectedQuestions = this.shuffleQuestions(this.questions, questionCount);  
-
-        this.quizIntro.style.display = 'none';  
-        this.quizArea.style.display = 'block';  
-        
-        this.currentQuiz = new Quiz(selectedQuestions);  
-        this.currentQuiz.start();  
-    }  
-
-    restartQuiz() {  
-        location.reload();  
-    }  
-
-    shuffleQuestions(questions, count) {  
-        let shuffled = [...questions];  
-        for (let i = shuffled.length - 1; i > 0; i--) {  
-            const j = Math.floor(Math.random() * (i + 1));  
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];  
-        }  
-        return shuffled.slice(0, count);  
-    }  
-}  
-
-// Inisialisasi Aplikasi  
-document.addEventListener('DOMContentLoaded', async () => {  
-    const quizApp = new QuizApp();  
-    await quizApp.loadQuestions();  
+// Inisialisasi quiz
+document.addEventListener('DOMContentLoaded', () => {
+    const quiz = new Quiz();
 });
