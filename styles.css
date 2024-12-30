@@ -345,3 +345,177 @@ body {
     font-size: 1.1em;
     color: var(--dark);
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Container */
+    .container {
+        padding: 10px;
+    }
+
+    #quiz-container {
+        padding: 15px;
+        margin: 0;
+    }
+
+    /* Header */
+    .quiz-header h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    /* Quiz Area Layout */
+    #quiz-area {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Sidebar Soal */
+    #question-sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    #question-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 5 tombol per baris */
+        gap: 8px;
+        max-height: 120px;
+    }
+
+    .question-nav-item {
+        padding: 8px;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* Konten Utama */
+    #main-quiz-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #question-container {
+        padding: 15px;
+    }
+
+    /* Timer dan Nomor Soal */
+    #question-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #timer-container {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* Opsi Jawaban */
+    .option-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Tombol Navigasi */
+    .quiz-controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: auto;
+    }
+
+    /* Hasil Kuis */
+    #result-area {
+        padding: 15px;
+    }
+
+    .duration-section {
+        padding: 15px;
+    }
+
+    .duration-chart {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .duration-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Tombol Restart */
+    #restart-quiz {
+        position: static;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Form Elements */
+    .form-control {
+        width: 100%;
+        max-width: none;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Chart Responsif */
+    canvas {
+        max-width: 100%;
+        height: auto !important;
+    }
+}
+
+/* Untuk layar sangat kecil */
+@media screen and (max-width: 375px) {
+    #question-list {
+        grid-template-columns: repeat(4, 1fr); /* 4 tombol per baris */
+    }
+
+    .quiz-header h1 {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+/* Perbaikan orientasi landscape */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+    }
+
+    #quiz-container {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    #question-list {
+        max-height: 80px;
+    }
+
+    .quiz-header h1 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+}
+
+/* Mencegah zoom pada input di iOS */
+@supports (-webkit-touch-callout: none) {
+    input, select {
+        font-size: 16px !important;
+    }
+}
