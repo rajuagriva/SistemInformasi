@@ -308,6 +308,15 @@ class Quiz {
 
     createDurationChart() {
         const ctx = document.getElementById('durationChart').getContext('2d');
+        
+        // Tentukan warna berdasarkan jawaban benar/salah
+        const barColors = this.questionDurations.map((_, index) => {
+            const userAnswer = this.userAnswers[index] !== undefined ? 
+                this.selectedQuestions[index].options[this.userAnswers[index]] : 'Tidak dijawab';
+            const isCorrect = userAnswer === this.selectedQuestions[index].correct;
+            return isCorrect ? '#4A90E2' : '#FFD700'; // Biru untuk benar, Kuning untuk salah
+        });
+
         new Chart(ctx, {
             type: 'bar',
             data: {
@@ -315,8 +324,10 @@ class Quiz {
                 datasets: [{
                     label: 'Durasi (detik)',
                     data: this.questionDurations,
-                    backgroundColor: '#4A90E2',
-                    borderColor: '#357ABD',
+                    backgroundColor: barColors,
+                    borderColor: barColors.map(color => 
+                        color === '#4A90E2' ? '#357ABD' : '#DAA520'
+                    ),
                     borderWidth: 1
                 }]
             },
@@ -328,6 +339,25 @@ class Quiz {
                         title: {
                             display: true,
                             text: 'Waktu (detik)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            generateLabels: () => [{
+                                text: 'Jawaban Benar',
+                                fillStyle: '#4A90E2',
+                                strokeStyle: '#357ABD',
+                                lineWidth: 1
+                            }, {
+                                text: 'Jawaban Salah',
+                                fillStyle: '#FFD700',
+                                strokeStyle: '#DAA520',
+                                lineWidth: 1
+                            }]
                         }
                     }
                 }
